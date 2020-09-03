@@ -1,5 +1,9 @@
 # HydeCode
 
+## General
+### IDE Settings
+IDE Settings can applied from editorconfig although it is recommended to apply code style settings from the tslint.json.
+
 ## Project Structure
 
 ## Dependencies
