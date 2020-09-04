@@ -1,9 +1,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "target": "es2020",
+    "target": "es2017",
     "module": "commonjs",
     "moduleResolution": "Node",
+    "baseUrl": ".",
+    "outDir": "./dist/",
     "typeRoots": [
       "node_modules/@types"
     ],
