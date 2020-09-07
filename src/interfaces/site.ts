@@ -1,8 +1,14 @@
-export interface SiteConfig {
+import {Page} from './page';
+
+export interface Site {
 	title: string;
-	description?: string;
-	baseurl?: string;
-	defaults?: SiteDefaults[];
+	pages: Page[];
+	data: any[];
+	config: SiteConfig;
+}
+
+export interface SiteConfig {
+	defaults: SiteDefaults;
 }
 
 export interface SiteDefaults {

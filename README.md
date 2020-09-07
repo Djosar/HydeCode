@@ -19,6 +19,7 @@ sites/              /* This directory contains the user's project. */
 src/                /* This directory contains the typescript source code. */
     functions/      /* This directory contains the typescript scripts that handle the app functionalities. */
     interfaces/     /* This directory contains the typescript interfaces. */
+test.yml            /* This File contains an example for the future HydeCode yaml template. */
 ````
 
 ## Dependencies
