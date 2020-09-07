@@ -3,7 +3,6 @@ import {Page} from './page';
 export interface Site {
 	title: string;
 	pages: Page[];
-	data: any[];
 	config: SiteConfig;
 }
 

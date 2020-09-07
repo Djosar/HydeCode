@@ -1,0 +1,24 @@
+title: Test-project
+
+pages:
+  - name: Home        # required
+    fileName: index   # default: name attribute with spaces replaced by dashes and all lower case.
+    fileType: html    # default: html
+    layout: default
+    includes:
+      - name: title
+        data:
+          - key: title
+            value: Tolle Website
+          - key: description
+            value: lorem ipsum home dolor sit amet, dolor sit amet lorem blabla ipsum home dolor sit amet
+  - name: About
+    fileName: about
+    layout: default
+    includes:
+      - name: title
+        data:
+          - key: title
+            value: Tolle About Seite
+          - key: description
+            value: orem ipsum home dolor sit amet, dolor sit amet lorem blabla ipsum home dolor sit amet

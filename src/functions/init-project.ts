@@ -21,7 +21,7 @@ export function initProject(templatePath: string) {
 		getYaml(templatePath)
 			.then(out => YAML.parse(out) as Site)
 			.then(out => copyBoilerplate(out, filter))
-			.then(out => out?.pages.forEach(page => createPage(out?.title.toLowerCase().replace(' ', '_'), page)))
+			.then(out => out?.pages?.forEach(page => createPage(out?.title?.toLowerCase().replace(' ', '_'), page)))
 			.catch(err => console.error('SITE INIT ERROR', err));
 	}
 }
@@ -30,7 +30,7 @@ function getYaml(path: string): Promise<string> {
 	return readFile(path, 'utf-8');
 }
 
-function createPage(siteName: string, page: Page) {
+function createPage(siteName: string, page: Page): Promise<void> {
 	const fileName: string = page.fileName ?? page.name.toLowerCase().replace(' ', '_');
 	const fileType: string = page.fileType ?? 'html';
 
