@@ -1,0 +1,17 @@
+.cta-01 {
+  display: flex;
+  align-items: center;
+}
+
+.cta-03 {
+  .btn:not(:first-child) {
+    margin-left: 20px;
+  }
+}
+
+.cta-04 {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}

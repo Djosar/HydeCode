@@ -1,0 +1,29 @@
+.btn {
+  padding: 15px 30px;
+  font-weight: 500;
+  cursor: pointer;
+  width: max-content;
+  transition: 0.25s ease;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: $color-primary;
+  border: 2px solid $color-primary;
+
+  &:hover {
+    color: $color-primary;
+    background-color: transparent;
+  }
+}
+
+.btn-outline {
+  color: $color-text;
+  background-color: transparent;
+  border: 2px solid $color-text;
+
+  &:hover {
+    color: $color-primary;
+    border: 2px solid $color-primary;
+  }
+}

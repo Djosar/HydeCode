@@ -1,0 +1,47 @@
+.center-text { text-align: center; }
+
+.boxed { border: 1px solid #363940; }
+
+h1 { font-family: "Rubik"; font-weight: 500; font-size: 2.25rem; letter-spacing: 0; margin-top: 0; }
+
+h2 { font-family: "Rubik"; font-weight: 500; font-size: 2rem; letter-spacing: 0; margin-top: 0; }
+
+h3 { font-family: "Rubik"; font-weight: 500; font-size: 1.75rem; letter-spacing: 0; margin-top: 0; }
+
+h4 { font-family: "Rubik"; font-weight: 500; font-size: 1.5rem; letter-spacing: 0; margin-top: 0; }
+
+h5 { font-family: "Rubik"; font-weight: 500; font-size: 1.25rem; letter-spacing: 0; margin-top: 0; }
+
+h6 { font-family: "Rubik"; font-weight: 500; font-size: 1.125rem; letter-spacing: 0; margin-top: 0; margin-bottom: 1rem; }
+
+p { font-family: "Rubik"; font-weight: 300; font-size: 1rem; letter-spacing: 0; }
+
+button, .btn { font-family: "Rubik"; font-weight: 500; font-size: 0.75rem; letter-spacing: 0; text-transform: uppercase; }
+
+a, a:hover, a:visited, a:active { font-family: "Rubik"; font-weight: 500; font-size: 0.75rem; letter-spacing: 0.125rem; text-transform: uppercase; text-decoration: none; color: #6E38F7; }
+
+.btn { padding: 15px 30px; font-weight: 500; cursor: pointer; width: max-content; transition: 0.25s ease; }
+
+.btn-primary { color: #fff; background-color: #6E38F7; border: 2px solid #6E38F7; }
+
+.btn-primary:hover { color: #6E38F7; background-color: transparent; }
+
+.btn-outline { color: #363940; background-color: transparent; border: 2px solid #363940; }
+
+.btn-outline:hover { color: #6E38F7; border: 2px solid #6E38F7; }
+
+.component { padding-top: 100px; padding-bottom: 100px; }
+
+.cta-01 { display: flex; align-items: center; }
+
+.cta-03 .btn:not(:first-child) { margin-left: 20px; }
+
+.cta-04 { margin-top: 100px; margin-bottom: 100px; padding-top: 50px; padding-bottom: 50px; }
+
+.features-02 p { margin-bottom: 1.25rem; }
+
+html { font-size: 16px; }
+
+.container { max-width: 1200px; }
+
+/*# sourceMappingURL=styles.css.map */
