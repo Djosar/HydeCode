@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "create-site": "node ./dist/functions/create-site.js"
+    "init-project": "node ./dist/functions/init-project.js"
   },
   "repository": {
     "type": "git",

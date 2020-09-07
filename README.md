@@ -10,6 +10,9 @@ This project is based on Typescript. To compile the Typescript code, run
 To start the watch mode run  
 ``npm run watch``
 
+### Sites Directory
+The Sites directory needs to be writable to for the command line user.
+
 ## Project Structure
 ````javascript
 boilerplate/        /* This directory contains the boilerplate code for our basic jekyll project. */

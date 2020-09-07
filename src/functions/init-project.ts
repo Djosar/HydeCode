@@ -1,10 +1,14 @@
 import YAML from 'yaml';
-import {Site, SiteConfig} from '../interfaces/site';
-import {copy, CopyFilterSync, writeFile, ensureDir, readFile} from 'fs-extra';
+import {Site} from '../interfaces/site';
+import {copy, CopyFilterSync, readFile, outputFile} from 'fs-extra';
+import {getPage} from './page/get';
+import {Page} from '../interfaces/page';
 
 const args = process.argv.slice(2);
 
 const templatePath = args[0];
+
+console.log(templatePath);
 
 initProject(templatePath);
 
@@ -16,19 +20,9 @@ export function initProject(templatePath: string) {
 
 		getYaml(templatePath)
 			.then(out => YAML.parse(out) as Site)
-			.then(out => copyBoilerplate(out.title, filter))
+			.then(out => copyBoilerplate(out, filter))
+			.then(out => out?.pages.forEach(page => createPage(out?.title.toLowerCase().replace(' ', '_'), page)))
 			.catch(err => console.error('SITE INIT ERROR', err));
-
-		/*const yaml: string = YAML.stringify(siteConfig);
-		const filter = (src: string, dest: string) => {
-			return src !== 'boilerplate/.gitignore';
-
-		};
-
-		copyBoilerplate(siteConfig.title.toLowerCase(), filter)
-			.then(() => createYamlFile(siteConfig.title.toLowerCase(), yaml))
-			.catch(err => console.error('INIT SITE ERROR', err));*/
-
 	}
 }
 
@@ -36,11 +30,14 @@ function getYaml(path: string): Promise<string> {
 	return readFile(path, 'utf-8');
 }
 
-function createYamlFile(name: string, content: string) {
-	return ensureDir(`./sites/${name}/`)
-		.then(() => writeFile(`./sites/${name}/_config.yml`, content))
+function createPage(siteName: string, page: Page) {
+	const fileName: string = page.fileName ?? page.name.toLowerCase().replace(' ', '_');
+	const fileType: string = page.fileType ?? 'html';
+
+	return outputFile(`./sites/${siteName}/${fileName}.${ fileType }`, getPage(page));
 }
 
-function copyBoilerplate(name: string, copyFilter: CopyFilterSync) {
-	return copy('./boilerplate', `./sites/${name}`, {filter: copyFilter});
+function copyBoilerplate(site: Site, copyFilter: CopyFilterSync): Promise<Site> {
+	return copy('./boilerplate', `./sites/${site.title.toLowerCase().replace(' ', '_')}`, {filter: copyFilter})
+		.then(() => site)
 }
