@@ -1,8 +1,8 @@
 import YAML from 'yaml';
 import {Site} from '../interfaces/site';
 import {copy, CopyFilterSync, readFile, outputFile} from 'fs-extra';
-import {getPageExport} from './page/get';
-import {Page, PageExport} from '../interfaces/page';
+import {getPageExport} from './page';
+import {PageExport} from '../interfaces/page';
 
 const args = process.argv.slice(2);
 

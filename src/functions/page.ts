@@ -1,4 +1,4 @@
-import {Include, Page, PageExport} from '../../interfaces/page';
+import {Include, Page, PageExport} from '../interfaces/page';
 import YAML from 'yaml';
 
 export function getPageExport(page: Page) {
