@@ -8,10 +8,18 @@ export interface Page {
 
 export interface Include {
 	name: string;
-	data: Data[];
+	data: any;
 }
 
-export interface Data {
-	key: string;
-	value: string;
+export interface PageExport {
+	pageFileName: string;
+	dataFileName: string;
+	frontMatter: string;
+	html: string;
+	yaml: string;
+}
+
+export interface IncludeExport {
+	html: string;
+	data: string // valid yaml string
 }

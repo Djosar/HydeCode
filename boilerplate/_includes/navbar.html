@@ -1,0 +1,7 @@
+<nav>
+    {% for item in include.navbar %}
+        <a href="{{ item.link }}" {% if page.url == item.link %}style="color: red;"{% endif %}>
+            {{ item.name }}
+        </a>
+    {% endfor %}
+</nav>

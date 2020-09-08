@@ -7,18 +7,11 @@ pages:
     layout: default
     includes:
       - name: title
+        data:         # This needs to be valid yaml as it will be pasted into a specific page data file.
+          title: Das ist ein Titel
+          description: Lorem Ipsum dolor sit amet das ist eine tolle Beschreibung dolor sit amet
+      - name: list
         data:
-          - key: title
-            value: Tolle Website
-          - key: description
-            value: lorem ipsum home dolor sit amet, dolor sit amet lorem blabla ipsum home dolor sit amet
-  - name: About
-    fileName: about
-    layout: default
-    includes:
-      - name: title
-        data:
-          - key: title
-            value: Tolle About Seite
-          - key: description
-            value: orem ipsum home dolor sit amet, dolor sit amet lorem blabla ipsum home dolor sit amet
+          - eins
+          - zwei
+          - drei

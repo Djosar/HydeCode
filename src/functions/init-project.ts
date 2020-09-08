@@ -1,14 +1,12 @@
 import YAML from 'yaml';
 import {Site} from '../interfaces/site';
 import {copy, CopyFilterSync, readFile, outputFile} from 'fs-extra';
-import {getPage} from './page/get';
-import {Page} from '../interfaces/page';
+import {getPageExport} from './page/get';
+import {Page, PageExport} from '../interfaces/page';
 
 const args = process.argv.slice(2);
 
 const templatePath = args[0];
-
-console.log(templatePath);
 
 initProject(templatePath);
 
@@ -21,8 +19,8 @@ export function initProject(templatePath: string) {
 		getYaml(templatePath)
 			.then(out => YAML.parse(out) as Site)
 			.then(out => copyBoilerplate(out, filter))
-			.then(out => out?.pages?.forEach(page => createPage(out?.title?.toLowerCase().replace(' ', '_'), page)))
-			.catch(err => console.error('SITE INIT ERROR', err));
+			.then(out => out?.pages?.forEach(page => createPage(out.title.toLowerCase().replace(' ', '_'), getPageExport(page))))
+			.catch(err => console.error('INIT SITE ERROR', err));
 	}
 }
 
@@ -30,11 +28,10 @@ function getYaml(path: string): Promise<string> {
 	return readFile(path, 'utf-8');
 }
 
-function createPage(siteName: string, page: Page): Promise<void> {
-	const fileName: string = page.fileName ?? page.name.toLowerCase().replace(' ', '_');
-	const fileType: string = page.fileType ?? 'html';
+function createPage(siteName: string, page: PageExport): Promise<void> {
 
-	return outputFile(`./sites/${siteName}/${fileName}.${ fileType }`, getPage(page));
+	return outputFile(`./sites/${siteName}/${page.pageFileName}`, page.html)
+		.then(() => outputFile(`./sites/${siteName}/_data/${page.dataFileName}`, page.yaml));
 }
 
 function copyBoilerplate(site: Site, copyFilter: CopyFilterSync): Promise<Site> {
